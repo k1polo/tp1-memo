@@ -7,6 +7,7 @@ export default function Taches({gererAjoutTache, taches, setTaches, utilisateur}
   
   const [tache, setTache] = useState('');
 
+  // Lire les taches (de l'utilisateur connecté) dans Firestore
   useEffect(
     () => tacheModele.lireTout(utilisateur.uid).then(
       lesTaches => setTaches(lesTaches)
@@ -16,8 +17,11 @@ export default function Taches({gererAjoutTache, taches, setTaches, utilisateur}
 
   
   function ajoutTache(event) {
+    //Empeche le site de rafraichir à chaque fois qu'un submit est fait
     event.preventDefault();
+    // Reset le value du texte pour le rendre vide
     setTache("");
+    // Code qui gère l'ajout dans Firestore
     gererAjoutTache(tache);
   };
 

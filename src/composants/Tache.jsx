@@ -4,9 +4,11 @@ import DoDisturbOnIcon from '@mui/icons-material/DoDisturbOn';
 import IconButton from '@mui/material/IconButton';
 
 export default function Tache({tache, dateModif}) {
-
+  //Variable contenant la date de l'objet
   const jour = dateModif.toDate().toLocaleDateString('fr-CA', {day:"2-digit", month: "long", year:"numeric"});
+  //Variable contenant l'heure de l'objete
   const heure = dateModif.toDate().toLocaleTimeString('en-GB');
+  //Concat des strings dans jour et heure
   dateModif = jour + " à " + heure;
 
   return (
