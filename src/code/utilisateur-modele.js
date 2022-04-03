@@ -22,7 +22,7 @@ export function observerEtatConnexion(mutateurEtatUtilisateur) {
         user => {
             if(user){
                 //Sauvegarder le profil dans firestore
-                setDoc(doc(bdFirestore, "memo", user.uid), {nom: user.displayName, courriel: user.email}, {merge: true});
+                setDoc(doc(bdFirestore, "memo", user.uid), {"nom complet": user.displayName, "adresse courriel": user.email}, {merge: true});
             }
             mutateurEtatUtilisateur(user)
         }
